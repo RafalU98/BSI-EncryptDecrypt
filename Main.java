@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Decryption and Encryption Algorithms for BSI classes PJATK Gdańsk
  *
  * @Authors Rafał Ubermanowicz and Jakub Wiśniewski
- * @version 1.0 Build 1 December 13, 2020.
+ * @version 1.8 Build 2 January 5, 2020.
 */
 public class Main {
     public static void main(String[] args) throws InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, NoSuchPaddingException {
@@ -20,7 +20,9 @@ public class Main {
                 Choose which Algorithm you want to use:
                 1. DES ( Data Encryption Standard )
                 2. AES ( Advanced Encryption Standard )
-                3. RC5 ( Rivest Cipher 5 )
+                3. Blowfish algorithm
+                4. RSA (Rivest–Shamir–Adleman) 
+                5. Diffie Hellman Merkle
                 """
         );
         Scanner scanner = new Scanner(System.in);
@@ -29,14 +31,22 @@ public class Main {
         switch (choice) {
             case 1:
                 DES.encryptDecryptDES();
+                break;
             case 2:
                 AES.DecrypteEncrypte();
+                break;
             case 3:
-                //RC5.encryptDecryptRC5();
-            default:
-                System.out.println("You have entered a Wrong NUMBER, please restart the program and try again");
+                Blowfish.encryptDecryptBLOWFISH();
+                break;
+            case 4:
+                RSA.encryptDecryptRSA();
+                break;
+            case 5:
+                DHM.();
+                break;
         }
 
 
     }
 }
+
