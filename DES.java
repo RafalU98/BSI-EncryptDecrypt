@@ -45,8 +45,8 @@ public class DES {
     public static String decrypt(String word, String key) {
         try {
             byte[] keyData = (key).getBytes();
-            SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, "DES/CBC/PKCS7PADDING");
-            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS7PADDING");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, "DES/CBC/PKCS5PADDING");
+            Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
             byte[] text = cipher.doFinal(java.util.Base64.getDecoder().decode(word));
             return new String(text);
@@ -67,7 +67,7 @@ public class DES {
         System.out.println("Do you want to 1.Encrypt or 2.Decrypt?");
         choice = scanner.nextInt();
 
-        System.out.println("Please Enter Your secret Key");
+        System.out.println("Please Enter Your secret Key ( size = 8 )");
         String key = scanner.next();
 
 
